@@ -1,14 +1,13 @@
-package com.github.alextokarew.joker.jvmdebug;
+package com.github.alextokarew.javadebugging.ffm;
 
 import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
 
-
-
 public class FibFFM {
     public static void main(String[] args) throws Throwable {
         try (Arena arena = Arena.ofConfined()) {
-            var sl = SymbolLookup.libraryLookup("/home/atokarew/Work/talks/jvmdebug/jni_example/libfibffm.so", arena);
+            IO.println("Working dir: " + System.getProperty("user.dir"));
+            var sl = SymbolLookup.libraryLookup("../cpp-fib/build/lib/main/debug/libcpp-fib.so", arena);
             MemorySegment memSeg = sl.find("fibonacci").orElseThrow();
             Linker linker = Linker.nativeLinker();
 

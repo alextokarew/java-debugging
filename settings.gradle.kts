@@ -13,3 +13,4 @@ plugins {
 
 rootProject.name = "java-debugging"
 include("app")
+include("cpp-fib")

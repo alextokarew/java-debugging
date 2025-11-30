@@ -22,3 +22,8 @@ java {
         languageVersion = JavaLanguageVersion.of(25)
     }
 }
+
+application {
+    mainClass = System.getProperty("exec.mainClass")
+    applicationDefaultJvmArgs = listOf("--enable-native-access=ALL-UNNAMED")
+}
