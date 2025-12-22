@@ -15,7 +15,7 @@ Launch Spark shell in the first terminal
 
 ```bash
 export JAVA_TOOL_OPTIONS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006"
-./bin/spark-shell 
+./bin/spark-shell --driver-java-options "-Dorg.codehaus.janino.source_debugging.enable=true" --conf spark.sql.ui.explainMode=codegen
 ```
 Launch JDB in the second terminal
 
