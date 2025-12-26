@@ -49,8 +49,9 @@ dump this
 ### With JDB
 
 ```commandline
-cd app/build/classes/java/main/
-jdb com.github.alextokarew.javadebugging.codegen.BytecodeDebugging
+jdb -sourcepath app/src/main/java:app/src/main/exprs \
+    -classpath app/build/classes/java/main/ \
+    com.github.alextokarew.javadebugging.codegen.BytecodeDebugging
 ```
 
 ```jdb
@@ -58,6 +59,9 @@ stop at com.github.alextokarew.javadebugging.codegen.BytecodeDebugging:37
 run 
 
 stepi (x4)
+wherei
+
+list
 ```
 
 # FFM API debugging
