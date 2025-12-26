@@ -65,7 +65,8 @@ public class BytecodeDebugging {
 
     private static void buildMethodBody(CodeBuilder codeBuilder) {
         codeBuilder
-                .localVariable(1, "a", CD_int, codeBuilder.startLabel(), codeBuilder.endLabel())
+                .localVariable(0, "this", ClassDesc.of(SAMPLE_CALCULATOR_CLASS_NAME), codeBuilder.startLabel(), codeBuilder.endLabel())
+        		.localVariable(1, "a", CD_int, codeBuilder.startLabel(), codeBuilder.endLabel())
                 .localVariable(2, "b", CD_int, codeBuilder.startLabel(), codeBuilder.endLabel())
                 .lineNumber(1)
                 .iload(1)
