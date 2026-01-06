@@ -29,7 +29,6 @@ public class BytecodeDebugging {
 
         Files.write(Path.of("SampleCalculator.class"), classFileBytes);
 
-        // Загрузка класса
         MyClassLoader myClassLoader = new MyClassLoader(Entrypoint.class.getClassLoader(), classFileBytes);
         myClassLoader.loadClass(Entrypoint.class.getName());
         Class<?> cls = myClassLoader.defineClass();
@@ -53,7 +52,6 @@ public class BytecodeDebugging {
                     ClassFile.ACC_PUBLIC,
                     BytecodeDebugging::buildMethodBody)
                 .with(SourceFileAttribute.of("expression.expr"));
-        // TODO debug information ???
     }
 
     private static void buildConstructor(CodeBuilder codeBuilder) {
