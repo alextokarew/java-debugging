@@ -54,6 +54,40 @@ wherei
 list
 ```
 
+# Multithread debugging
+
+## Deadlocks
+
+```commandline
+java -cp app/build/classes/java/main -agentlib:jdwp="transport=dt_socket,server=y,suspend=n,address=*:5006" \
+      com.github.alextokarew.javadebugging.multithreaded.Deadlocks
+jdb -attach localhost:5006
+```
+
+```jdb
+threads
+thread 727
+where
+
+```
+
+## Races
+
+```commandline
+jdb -sourcepath app/src/main/java -classpath app/build/classes/java/main com.github.alextokarew.javadebugging.multithreaded.Races
+```
+
+```jdb
+stop thread at com.github.alextokarew.javadebugging.multithreaded.Races:12
+run
+threads
+thread <thread id 1>
+print counter
+thread <thread id 2>
+print counter
+resume
+```
+
 # FFM API debugging
 
 ## Building and running
