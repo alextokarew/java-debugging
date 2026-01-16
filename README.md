@@ -61,7 +61,7 @@ list
 ```commandline
 java -cp app/build/classes/java/main -agentlib:jdwp="transport=dt_socket,server=y,suspend=n,address=*:5006" \
       com.github.alextokarew.javadebugging.multithreaded.Deadlocks
-jdb -attach localhost:5006
+jdb -sourcepath app/src/main/java -attach localhost:5006
 ```
 
 ```jdb
@@ -81,11 +81,17 @@ jdb -sourcepath app/src/main/java -classpath app/build/classes/java/main com.git
 stop thread at com.github.alextokarew.javadebugging.multithreaded.Races:12
 run
 threads
+suspend <thread id 2>
 thread <thread id 1>
+stepi (x3)
 print counter
+suspend <thread id 1>
 thread <thread id 2>
+resume <thread id 2>
+stepi (x3)
 print counter
-resume
+resume <thread id 1>
+cont
 ```
 
 # FFM API debugging
