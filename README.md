@@ -97,18 +97,16 @@ cont
 # FFM API debugging
 
 ## Building and running
+
 At the project root:
 ```bash
 ./gradlew clean build
-```
-
-```
+cd app/
 java -cp build/classes/java/main --enable-native-access=ALL-UNNAMED \
      -agentlib:jdwp="transport=dt_socket,server=y,suspend=y,address=*:5005" \
      com.github.alextokarew.javadebugging.ffm.FibFFM
-gdb --pid <dsds>
+gdb --pid $JAVA_PROCESS_PID
 jdb -attach 5005
-
 ```
 
 ```gdb
