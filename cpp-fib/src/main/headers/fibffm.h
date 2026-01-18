@@ -1,5 +1,5 @@
-#ifndef _Included_com_github_alextokarew_joker_jvmdebug_HelloJNI
-#define _Included_com_github_alextokarew_joker_jvmdebug_HelloJNI
+#ifndef Fibonacci_FFM
+#define Fibonacci_FFM
 #ifdef __cplusplus
 extern "C" {
 #endif

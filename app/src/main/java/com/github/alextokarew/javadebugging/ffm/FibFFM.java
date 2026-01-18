@@ -4,7 +4,7 @@ import java.lang.foreign.*;
 import java.lang.invoke.MethodHandle;
 
 public class FibFFM {
-    public static void main(String[] args) throws Throwable {
+    static void main(String[] args) throws Throwable {
         try (Arena arena = Arena.ofConfined()) {
             IO.println("Working dir: " + System.getProperty("user.dir"));
             var sl = SymbolLookup.libraryLookup("../cpp-fib/build/lib/main/debug/libcpp-fib.so", arena);
@@ -15,7 +15,7 @@ public class FibFFM {
 
             MethodHandle fibonacci = linker.downcallHandle(memSeg, desc);
             var result = fibonacci.invoke(12);
-	    System.out.println("Result: " + result);
+            IO.println("Result: " + result);
         }
     }
 }
