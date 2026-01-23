@@ -65,10 +65,14 @@ jdb -sourcepath app/src/main/java -attach localhost:5006
 ```
 
 ```jdb
+suspend
 threads
-thread 727
-where
-
+where 734
+threadlocks
+dump locks
+lock lock[0]
+lock lock[1]
+lock lock[2]
 ```
 
 ## Races
