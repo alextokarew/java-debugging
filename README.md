@@ -18,12 +18,12 @@ next
 locals
 dump calc
 step
-watch com.github.alextokarew.javadebugging.jdb.Calculator.multiplier
 next (to multiply method)
 step (into multiply)
 where
 eval value * 3
 set value = 20
+watch com.github.alextokarew.javadebugging.jdb.Calculator.multiplier
 cont 
 where
 cont
